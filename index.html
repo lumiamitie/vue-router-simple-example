@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <title></title>
+</head>
+<body>
+
+<div id="blog">
+    <h1>Vue-router Testing</h1>
+    <ul>
+        <router-link to="/home">Home</router-link>
+        <router-link to="/about">About</router-link>
+        <router-link to="/portfolio">Portfolio</router-link>
+        <router-link to="/contact">Contact</router-link>
+    </ul>
+    <router-view></router-view>
+</div>
+
+
+<template id="home">
+    <h2>Welcome To Home</h2>    
+</template>
+
+<template id="about">
+    <h2>About Miika</h2>
+</template>
+
+<template id="portfolio">
+    <h2>Welcome To Home</h2>
+</template>
+
+<template id="contact">
+    <h2>To Contact</h2>
+</template>
+
+</body>
+
+<script>
+    var home = Vue.extend({
+        template: '#home',
+        data: function() { return {}; }
+    })
+
+    var about = Vue.extend({
+        template: '#about',
+        data: function() { return {}; }
+    })
+
+    var portfolio = Vue.extend({
+        template: '#portfolio',
+        data: function() { return {}; }
+    })
+
+    var contact = Vue.extend({
+        template: '#contact',
+        data: function() { return {}; }
+    })
+
+    var router = new VueRouter({
+        routes: [
+            {path: '/', component: home},
+            {path: '/home', component: home},
+            {path: '/about', component: about},
+            {path: '/portfolio', component: portfolio},
+            {path: '/contact', component: contact}
+        ]
+    })
+
+    var app = new Vue({
+        router
+    }).$mount('#blog')
+</script>
+</html>
